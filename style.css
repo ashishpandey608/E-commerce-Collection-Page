@@ -1,0 +1,169 @@
+/* Basic Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f2f2f2;
+  color: #222;
+  overflow-x: hidden;
+}
+
+/* Banner at the top */
+.hero {
+  height: 380px;
+  width: 100%;
+  background-image: url("snowboard.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/* Slight dark overlay */
+.hero::after {
+  content: "";
+  background: rgba(0, 0, 0, 0.3);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.hero h1 {
+  color: white;
+  font-size: 42px;
+  font-weight: 600;
+  z-index: 1;
+  text-align: center;
+  padding: 0 12px;
+}
+
+/* Top section where filters appear */
+.controls {
+  max-width: 1100px;
+  margin: 20px auto;
+  padding: 0 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#product-count {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+#sort-select {
+  padding: 6px 10px;
+  border-radius: 4px;
+  border: 1px solid #aaa;
+  font-size: 15px;
+}
+
+/* Product list layout */
+.product-list {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+/* Each product box */
+.product-card {
+  background: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.4s ease;
+}
+
+.product-card.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.product-card img {
+  width: 100%;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+
+/* Titles and details */
+.product-card h3 {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #111;
+  min-height: 48px;
+  word-break: break-word;
+  margin-bottom: 5px;
+}
+
+.product-card p {
+  font-size: 14px;
+  color: #666;
+  min-height: 30px;
+  margin: 5px 0;
+}
+
+.product-card h4 {
+  margin: 10px 0;
+  font-size: 15px;
+  color: #000;
+}
+
+/* Cart button */
+.add-cart-btn {
+  background-color: #002244;
+  color: #fff;
+  border: none;
+  padding: 8px 0;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 4px;
+  margin-top: auto;
+  cursor: pointer;
+}
+
+.add-cart-btn:hover {
+  background-color: #001930;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .hero {
+    height: 180px;
+  }
+
+  .hero h1 {
+    font-size: 24px;
+  }
+
+  .controls {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  #sort-select {
+    width: 100%;
+  }
+
+  .product-card {
+    width: 100%;
+  }
+}
